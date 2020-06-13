@@ -1,7 +1,7 @@
 docs_dir: docs/book
 site_dir: docs/html
-pages:
-    - index.md
+nav:
+    - Home: index.md
     - 'Quick Start': quick-start.md
     - Reference:
       - 'Configuring the service manager': configuring-the-service-manager.md
@@ -14,7 +14,8 @@ pages:
     - Cookbook:
       - 'Factories vs Abstract Factories': cookbook/factories-vs-abstract-factories.md
     - 'Migration Guide': migration.md
-site_name: zend-servicemanager
-site_description: 'zend-servicemanager: factory-driven dependency injection container'
-repo_url: 'https://github.com/zendframework/zend-servicemanager'
-copyright: 'Copyright (c) 2005-2017 <a href="http://www.zend.com/">Zend Technologies USA Inc.</a>'
+site_name: laminas-servicemanager
+site_description: 'laminas-servicemanager: factory-driven dependency injection container'
+repo_url: 'https://github.com/laminas/laminas-servicemanager'
+extra:
+    project: Components

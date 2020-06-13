@@ -1,8 +1,9 @@
 <?php
+
 /**
- * @link      http://github.com/laminas/laminas-servicemanager for the canonical source repository
- * @copyright Copyright (c) 2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-servicemanager for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-servicemanager/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-servicemanager/blob/master/LICENSE.md New BSD License
  */
 
 namespace Laminas\ServiceManager\AbstractFactory;
@@ -29,13 +30,10 @@ final class ConfigAbstractFactory implements AbstractFactoryInterface
         if (! $container->has('config')) {
             return false;
         }
-
         $config = $container->get('config');
-
         if (! isset($config[self::class])) {
             return false;
         }
-
         $dependencies = $config[self::class];
 
         return is_array($dependencies) && array_key_exists($requestedName, $dependencies);
@@ -55,10 +53,10 @@ final class ConfigAbstractFactory implements AbstractFactoryInterface
         if (! (is_array($config) || $config instanceof ArrayObject)) {
             throw new ServiceNotCreatedException('Config must be an array or an instance of ArrayObject');
         }
-
         if (! isset($config[self::class])) {
             throw new ServiceNotCreatedException('Cannot find a `' . self::class . '` key in the config array');
         }
+
 
         $dependencies = $config[self::class];
 
@@ -66,14 +64,16 @@ final class ConfigAbstractFactory implements AbstractFactoryInterface
             || ! array_key_exists($requestedName, $dependencies)
             || ! is_array($dependencies[$requestedName])
         ) {
-            throw new ServiceNotCreatedException('Dependencies config must exist and be an array');
+            throw new ServiceNotCreatedException('Service dependencies config must exist and be an array');
         }
 
         $serviceDependencies = $dependencies[$requestedName];
 
-        if ($serviceDependencies !== array_values(array_map('\strval', $serviceDependencies))) {
-            $problem = json_encode(array_map('\gettype', $serviceDependencies));
-            throw new ServiceNotCreatedException('Service message must be an array of strings, ' . $problem . ' given');
+        if ($serviceDependencies !== array_values(array_map('strval', $serviceDependencies))) {
+            $problem = json_encode(array_map('gettype', $serviceDependencies));
+            throw new ServiceNotCreatedException(
+                'Service dependencies config must be an array of strings, ' . $problem . ' given'
+            );
         }
 
         $arguments = array_map([$container, 'get'], $serviceDependencies);

@@ -1,5 +1,3 @@
-sudo: false
-
 language: php
 
 cache:
@@ -13,27 +11,22 @@ env:
     - STATIC_ANALYSIS_DEPS="phpstan/phpstan"
 
 matrix:
+  fast_finish: true
   include:
-    - php: 7.1
+    - php: 7.3
       env:
         - DEPS=lowest
-    - php: 7.1
+    - php: 7.3
       env:
-        - DEPS=locked
+        - DEPS=latest
         - CS_CHECK=true
         - BENCHMARKS=true
         - TEST_COVERAGE=true
         - STATIC_ANALYSIS=true
-    - php: 7.1
-      env:
-        - DEPS=latest
-    - php: 7.2
+    - php: 7.4
       env:
         - DEPS=lowest
-    - php: 7.2
-      env:
-        - DEPS=locked
-    - php: 7.2
+    - php: 7.4
       env:
         - DEPS=latest
 

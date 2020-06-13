@@ -1,27 +1,29 @@
 <?php
+
 /**
- * @link      http://github.com/zendframework/zend-servicemanager for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-servicemanager for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-servicemanager/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-servicemanager/blob/master/LICENSE.md New BSD License
  */
 
-namespace ZendTest\ServiceManager;
+namespace LaminasTest\ServiceManager;
 
 use DateTime;
+use Laminas\ServiceManager\Factory\AbstractFactoryInterface;
+use Laminas\ServiceManager\Factory\FactoryInterface;
+use Laminas\ServiceManager\Factory\InvokableFactory;
+use Laminas\ServiceManager\ServiceManager;
+use LaminasTest\ServiceManager\TestAsset\InvokableObject;
+use LaminasTest\ServiceManager\TestAsset\SimpleServiceManager;
+use Laminas\ServiceManager\Proxy\LazyServiceFactory;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerInterface;
 use stdClass;
-use Zend\ServiceManager\Factory\AbstractFactoryInterface;
-use Zend\ServiceManager\Factory\FactoryInterface;
-use Zend\ServiceManager\Factory\InvokableFactory;
-use Zend\ServiceManager\ServiceManager;
-use ZendTest\ServiceManager\TestAsset\InvokableObject;
-use ZendTest\ServiceManager\TestAsset\SimpleServiceManager;
 
 use function get_class;
 
 /**
- * @covers \Zend\ServiceManager\ServiceManager
+ * @covers \Laminas\ServiceManager\ServiceManager
  */
 class ServiceManagerTest extends TestCase
 {
@@ -69,8 +71,8 @@ class ServiceManagerTest extends TestCase
     }
 
     /**
-     * @covers \Zend\ServiceManager\ServiceManager::doCreate
-     * @covers \Zend\ServiceManager\ServiceManager::createDelegatorFromName
+     * @covers \Laminas\ServiceManager\ServiceManager::doCreate
+     * @covers \Laminas\ServiceManager\ServiceManager::createDelegatorFromName
      */
     public function testCanWrapCreationInDelegators()
     {
@@ -305,7 +307,7 @@ class ServiceManagerTest extends TestCase
     {
         $config = [
             'factories' => [
-                stdClass::class => 'ZendTest\ServiceManager\ServiceManagerTest::sampleFactory',
+                stdClass::class => 'LaminasTest\ServiceManager\ServiceManagerTest::sampleFactory',
             ]
         ];
         $serviceManager = new SimpleServiceManager($config);
@@ -362,5 +364,52 @@ class ServiceManagerTest extends TestCase
             ->willReturn(false);
 
         self::assertFalse($serviceManager->has('Alias'));
+    }
+
+    /**
+     * @group #3
+     * @see https://github.com/laminas/laminas-servicemanager/issues/3
+     */
+    public function testConfiguringADelegatorMultipleTimesDoesNotLeadToDuplicateDelegatorCalls()
+    {
+        $delegatorFactory = function (
+            ContainerInterface $container,
+            $name,
+            callable $callback
+        ) {
+            /** @var InvokableObject $instance */
+            $instance = $callback();
+            $options = $instance->getOptions();
+            $inc = $options['inc'] ?? 0;
+            return new InvokableObject(['inc' => ++$inc]);
+        };
+
+        $config = [
+            'factories' => [
+                'Foo' => function () {
+                    return new InvokableObject();
+                },
+            ],
+            'delegators' => [
+                'Foo' => [
+                    $delegatorFactory,
+                    LazyServiceFactory::class,
+                ],
+            ],
+            'lazy_services' => [
+                'class_map' => [
+                    'Foo' => InvokableObject::class,
+                ],
+            ],
+        ];
+
+        $serviceManager = new ServiceManager($config);
+        $serviceManager->configure($config);
+
+        /** @var InvokableObject $instance */
+        $instance = $serviceManager->get('Foo');
+
+        self::assertInstanceOf(InvokableObject::class, $instance);
+        self::assertSame(1, $instance->getOptions()['inc']);
     }
 }

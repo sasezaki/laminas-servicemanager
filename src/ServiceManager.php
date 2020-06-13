@@ -1,28 +1,29 @@
 <?php
+
 /**
- * @link      http://github.com/laminas/laminas-servicemanager for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
+ * @see       https://github.com/laminas/laminas-servicemanager for the canonical source repository
+ * @copyright https://github.com/laminas/laminas-servicemanager/blob/master/COPYRIGHT.md
+ * @license   https://github.com/laminas/laminas-servicemanager/blob/master/LICENSE.md New BSD License
  */
 
 namespace Laminas\ServiceManager;
 
 use Exception;
-use ProxyManager\Configuration as ProxyConfiguration;
-use ProxyManager\Factory\LazyLoadingValueHolderFactory;
-use ProxyManager\FileLocator\FileLocator;
-use ProxyManager\GeneratorStrategy\EvaluatingGeneratorStrategy;
-use ProxyManager\GeneratorStrategy\FileWriterGeneratorStrategy;
-use Psr\Container\ContainerInterface;
 use Laminas\ServiceManager\Exception\ContainerModificationsNotAllowedException;
 use Laminas\ServiceManager\Exception\CyclicAliasException;
 use Laminas\ServiceManager\Exception\ExceptionInterface;
 use Laminas\ServiceManager\Exception\InvalidArgumentException;
 use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
 use Laminas\ServiceManager\Exception\ServiceNotFoundException;
+use ProxyManager\Configuration as ProxyConfiguration;
+use ProxyManager\Factory\LazyLoadingValueHolderFactory;
+use ProxyManager\FileLocator\FileLocator;
+use ProxyManager\GeneratorStrategy\EvaluatingGeneratorStrategy;
+use ProxyManager\GeneratorStrategy\FileWriterGeneratorStrategy;
+use Psr\Container\ContainerInterface;
+use Laminas\Stdlib\ArrayUtils;
 
 use function array_intersect;
-use function array_merge_recursive;
 use function class_exists;
 use function get_class;
 use function gettype;
@@ -362,7 +363,7 @@ class ServiceManager implements ServiceLocatorInterface
         }
 
         if (isset($config['delegators'])) {
-            $this->delegators = array_merge_recursive($this->delegators, $config['delegators']);
+            $this->mergeDelegators($config['delegators']);
         }
 
         if (isset($config['shared'])) {
@@ -383,7 +384,7 @@ class ServiceManager implements ServiceLocatorInterface
         // If lazy service configuration was provided, reset the lazy services
         // delegator factory.
         if (isset($config['lazy_services']) && ! empty($config['lazy_services'])) {
-            $this->lazyServices          = array_merge_recursive($this->lazyServices, $config['lazy_services']);
+            $this->lazyServices          = ArrayUtils::merge($this->lazyServices, $config['lazy_services']);
             $this->lazyServicesDelegator = null;
         }
 
@@ -734,6 +735,32 @@ class ServiceManager implements ServiceLocatorInterface
         );
 
         return $this->lazyServicesDelegator;
+    }
+
+    /**
+     * Merge delegators avoiding multiple same delegators for the same service.
+     * It works with strings and class instances.
+     * It's not possible to de-duple anonymous functions
+     *
+     * @param string[][]|Factory\DelegatorFactoryInterface[][] $config
+     * @return string[][]|Factory\DelegatorFactoryInterface[][]
+     */
+    private function mergeDelegators(array $config)
+    {
+        foreach ($config as $key => $delegators) {
+            if (! array_key_exists($key, $this->delegators)) {
+                $this->delegators[$key] = $delegators;
+                continue;
+            }
+
+            foreach ($delegators as $delegator) {
+                if (! in_array($delegator, $this->delegators[$key], true)) {
+                    $this->delegators[$key][] = $delegator;
+                }
+            }
+        }
+
+        return $this->delegators;
     }
 
     /**
