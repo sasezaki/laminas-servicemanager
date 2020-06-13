@@ -1,18 +1,18 @@
 <?php
 /**
- * @link      http://github.com/zendframework/zend-servicemanager for the canonical source repository
+ * @link      http://github.com/laminas/laminas-servicemanager for the canonical source repository
  * @copyright Copyright (c) 2016-2017 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Zend\ServiceManager\Tool;
+namespace Laminas\ServiceManager\Tool;
 
 use Psr\Container\ContainerInterface;
 use ReflectionClass;
 use ReflectionParameter;
 use Traversable;
-use Zend\ServiceManager\AbstractFactory\ConfigAbstractFactory;
-use Zend\ServiceManager\Exception\InvalidArgumentException;
+use Laminas\ServiceManager\AbstractFactory\ConfigAbstractFactory;
+use Laminas\ServiceManager\Exception\InvalidArgumentException;
 
 use function array_filter;
 use function array_key_exists;

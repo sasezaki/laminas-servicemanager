@@ -1,14 +1,14 @@
 <?php
 /**
- * @link      http://github.com/zendframework/zend-servicemanager for the canonical source repository
+ * @link      http://github.com/laminas/laminas-servicemanager for the canonical source repository
  * @copyright Copyright (c) 2016-2017 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Zend\ServiceManager\Tool;
+namespace Laminas\ServiceManager\Tool;
 
-use Zend\ServiceManager\Exception;
-use Zend\Stdlib\ConsoleHelper;
+use Laminas\ServiceManager\Exception;
+use Laminas\Stdlib\ConsoleHelper;
 
 use function array_shift;
 use function class_exists;

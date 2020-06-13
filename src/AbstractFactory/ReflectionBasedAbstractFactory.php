@@ -1,17 +1,17 @@
 <?php
 /**
- * @see       https://github.com/zendframework/zend-servicemanager for the canonical source repository
+ * @see       https://github.com/laminas/laminas-servicemanager for the canonical source repository
  * @copyright Copyright (c) 2016-2018 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   https://github.com/zendframework/zend-servicemanager/blob/master/LICENSE.md New BSD License
+ * @license   https://github.com/laminas/laminas-servicemanager/blob/master/LICENSE.md New BSD License
  */
 
-namespace Zend\ServiceManager\AbstractFactory;
+namespace Laminas\ServiceManager\AbstractFactory;
 
 use Psr\Container\ContainerInterface;
 use ReflectionClass;
 use ReflectionParameter;
-use Zend\ServiceManager\Exception\ServiceNotFoundException;
-use Zend\ServiceManager\Factory\AbstractFactoryInterface;
+use Laminas\ServiceManager\Exception\ServiceNotFoundException;
+use Laminas\ServiceManager\Factory\AbstractFactoryInterface;
 
 use function array_map;
 use function class_exists;
@@ -80,8 +80,8 @@ class ReflectionBasedAbstractFactory implements AbstractFactoryInterface
      *
      * <code>
      * [
-     *     \Zend\Filter\FilterPluginManager::class       => 'FilterManager',
-     *     \Zend\Validator\ValidatorPluginManager::class => 'ValidatorManager',
+     *     \Laminas\Filter\FilterPluginManager::class       => 'FilterManager',
+     *     \Laminas\Validator\ValidatorPluginManager::class => 'ValidatorManager',
      * ]
      * </code>
      *

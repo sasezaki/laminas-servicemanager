@@ -21,8 +21,8 @@ parameters:
             message: '#Else branch is unreachable because ternary operator condition is always true#'
             path: %currentWorkingDirectory%/src/AbstractPluginManager.php
         -
-            message: '#Default value of the parameter \#1 \$resource \(mixed\) of method Zend\\ServiceManager\\Tool\\FactoryCreatorCommand::help\(\) is incompatible with type resource#'
+            message: '#Default value of the parameter \#1 \$resource \(mixed\) of method Laminas\\ServiceManager\\Tool\\FactoryCreatorCommand::help\(\) is incompatible with type resource#'
             path: %currentWorkingDirectory%/src/Tool/FactoryCreatorCommand.php
         -
-            message: '#Default value of the parameter \#1 \$resource \(mixed\) of method Zend\\ServiceManager\\Tool\\ConfigDumperCommand::help\(\) is incompatible with type resource#'
+            message: '#Default value of the parameter \#1 \$resource \(mixed\) of method Laminas\\ServiceManager\\Tool\\ConfigDumperCommand::help\(\) is incompatible with type resource#'
             path: %currentWorkingDirectory%/src/Tool/ConfigDumperCommand.php

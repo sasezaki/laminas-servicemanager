@@ -1,15 +1,15 @@
 <?php
 /**
- * @link      http://github.com/zendframework/zend-servicemanager for the canonical source repository
+ * @link      http://github.com/laminas/laminas-servicemanager for the canonical source repository
  * @copyright Copyright (c) 2016 Zend Technologies USA Inc. (http://www.zend.com)
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace Zend\ServiceManager\Tool;
+namespace Laminas\ServiceManager\Tool;
 
 use ReflectionClass;
 use ReflectionParameter;
-use Zend\ServiceManager\Exception\InvalidArgumentException;
+use Laminas\ServiceManager\Exception\InvalidArgumentException;
 
 use function array_filter;
 use function array_map;
@@ -30,7 +30,7 @@ class FactoryCreator
 namespace %s;
 
 use Psr\Container\ContainerInterface;
-use Zend\ServiceManager\Factory\FactoryInterface;
+use Laminas\ServiceManager\Factory\FactoryInterface;
 use %s;
 
 class %sFactory implements FactoryInterface
