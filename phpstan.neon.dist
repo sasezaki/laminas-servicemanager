@@ -12,8 +12,6 @@ parameters:
         - %currentWorkingDirectory%/vendor/*
 
     ignoreErrors:
-        - '#PHPDoc tag @throws with type Psr\\Container\\ContainerExceptionInterface is not subtype of Throwable#'
-# AbstractPluginManager::__construct() accepts more types:
         -
             message: '#Result of && is always false#'
             path: %currentWorkingDirectory%/src/AbstractPluginManager.php
