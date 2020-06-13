@@ -34,7 +34,7 @@ class FactoryCreator
 
 namespace %s;
 
-use %s;
+%s
 
 class %sFactory implements FactoryInterface
 {
