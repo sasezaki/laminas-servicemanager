@@ -1,0 +1,402 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\AbstractFactory\\\\ConfigAbstractFactory\\:\\:__invoke\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/AbstractFactory/ConfigAbstractFactory.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\AbstractFactory\\\\ReflectionBasedAbstractFactory\\:\\:__invoke\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/AbstractFactory/ReflectionBasedAbstractFactory.php
+
+		-
+			message: "#^Return typehint of method Laminas\\\\ServiceManager\\\\AbstractFactory\\\\ReflectionBasedAbstractFactory\\:\\:__invoke\\(\\) has invalid type Laminas\\\\ServiceManager\\\\AbstractFactory\\\\DispatchableInterface\\.$#"
+			count: 1
+			path: src/AbstractFactory/ReflectionBasedAbstractFactory.php
+
+		-
+			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
+			count: 2
+			path: src/AbstractFactory/ReflectionBasedAbstractFactory.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\AbstractPluginManager\\:\\:__construct\\(\\) has parameter \\$config with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/AbstractPluginManager.php
+
+		-
+			message: "#^Result of && is always false\\.$#"
+			count: 1
+			path: src/AbstractPluginManager.php
+
+		-
+			message: "#^Else branch is unreachable because ternary operator condition is always true\\.$#"
+			count: 1
+			path: src/AbstractPluginManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\AbstractPluginManager\\:\\:configure\\(\\) has parameter \\$config with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/AbstractPluginManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\AbstractPluginManager\\:\\:setService\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/AbstractPluginManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\AbstractPluginManager\\:\\:setService\\(\\) has parameter \\$service with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/AbstractPluginManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\AbstractPluginManager\\:\\:get\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/AbstractPluginManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\AbstractPluginManager\\:\\:validate\\(\\) has parameter \\$instance with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/AbstractPluginManager.php
+
+		-
+			message: "#^Property Laminas\\\\ServiceManager\\\\Config\\:\\:\\$allowedKeys type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Config.php
+
+		-
+			message: "#^Property Laminas\\\\ServiceManager\\\\Config\\:\\:\\$config type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Config.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\Config\\:\\:__construct\\(\\) has parameter \\$config with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Config.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\Config\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Config.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\Config\\:\\:merge\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Config.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\Config\\:\\:merge\\(\\) has parameter \\$a with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Config.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\Config\\:\\:merge\\(\\) has parameter \\$b with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Config.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\ConfigInterface\\:\\:toArray\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/ConfigInterface.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\Factory\\\\DelegatorFactoryInterface\\:\\:__invoke\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Factory/DelegatorFactoryInterface.php
+
+		-
+			message: "#^PHPDoc tag @throws with type Psr\\\\Container\\\\ContainerExceptionInterface is not subtype of Throwable$#"
+			count: 1
+			path: src/Factory/DelegatorFactoryInterface.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\Factory\\\\FactoryInterface\\:\\:__invoke\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Factory/FactoryInterface.php
+
+		-
+			message: "#^PHPDoc tag @throws with type Psr\\\\Container\\\\ContainerExceptionInterface is not subtype of Throwable$#"
+			count: 1
+			path: src/Factory/FactoryInterface.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\Factory\\\\InvokableFactory\\:\\:__invoke\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Factory/InvokableFactory.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\PluginManagerInterface\\:\\:validate\\(\\) has parameter \\$instance with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/PluginManagerInterface.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\Proxy\\\\LazyServiceFactory\\:\\:__invoke\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Proxy/LazyServiceFactory.php
+
+		-
+			message: "#^Parameter \\#1 \\$className of method ProxyManager\\\\Factory\\\\LazyLoadingValueHolderFactory\\:\\:createProxy\\(\\) expects class\\-string\\<object\\>, string given\\.$#"
+			count: 1
+			path: src/Proxy/LazyServiceFactory.php
+
+		-
+			message: "#^Unable to resolve the template type RealObjectType in call to method ProxyManager\\\\Factory\\\\LazyLoadingValueHolderFactory\\:\\:createProxy\\(\\)$#"
+			count: 1
+			path: src/Proxy/LazyServiceFactory.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\ServiceLocatorInterface\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/ServiceLocatorInterface.php
+
+		-
+			message: "#^PHPDoc tag @throws with type Psr\\\\Container\\\\ContainerExceptionInterface is not subtype of Throwable$#"
+			count: 1
+			path: src/ServiceLocatorInterface.php
+
+		-
+			message: "#^Property Laminas\\\\ServiceManager\\\\ServiceManager\\:\\:\\$lazyServices type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Property Laminas\\\\ServiceManager\\\\ServiceManager\\:\\:\\$services type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Property Laminas\\\\ServiceManager\\\\ServiceManager\\:\\:\\$cachedAbstractFactories type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\ServiceManager\\:\\:__construct\\(\\) has parameter \\$config with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^If condition is always false\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\ServiceManager\\:\\:build\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\ServiceManager\\:\\:setAllowOverride\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\ServiceManager\\:\\:configure\\(\\) has parameter \\$config with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\ServiceManager\\:\\:setAlias\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\ServiceManager\\:\\:setInvokableClass\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\ServiceManager\\:\\:setFactory\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\ServiceManager\\:\\:mapLazyService\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\ServiceManager\\:\\:addAbstractFactory\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\ServiceManager\\:\\:addDelegator\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\ServiceManager\\:\\:addInitializer\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\ServiceManager\\:\\:setService\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\ServiceManager\\:\\:setService\\(\\) has parameter \\$service with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\ServiceManager\\:\\:setShared\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\ServiceManager\\:\\:resolveInitializers\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\ServiceManager\\:\\:createDelegatorFromName\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\ServiceManager\\:\\:doCreate\\(\\) has parameter \\$options with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Parameter \\#1 \\$autoload_function of function spl_autoload_register expects callable\\(string\\)\\: void, ProxyManager\\\\Autoloader\\\\AutoloaderInterface given\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\ServiceManager\\:\\:createAliasesAndFactoriesForInvokables\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\ServiceManager\\:\\:createAliasesAndFactoriesForInvokables\\(\\) has parameter \\$invokables with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\ServiceManager\\:\\:validateServiceNames\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\ServiceManager\\:\\:validateServiceNames\\(\\) has parameter \\$config with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Negated boolean expression is always true\\.$#"
+			count: 7
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\ServiceManager\\:\\:mapAliasToTarget\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\ServiceManager\\:\\:mapAliasesToTargets\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/ServiceManager.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\Tool\\\\ConfigDumper\\:\\:createDependencyConfig\\(\\) has parameter \\$config with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Tool/ConfigDumper.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\Tool\\\\ConfigDumper\\:\\:createDependencyConfig\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Tool/ConfigDumper.php
+
+		-
+			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
+			count: 1
+			path: src/Tool/ConfigDumper.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\Tool\\\\ConfigDumper\\:\\:validateClassName\\(\\) has no return typehint specified\\.$#"
+			count: 1
+			path: src/Tool/ConfigDumper.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\Tool\\\\ConfigDumper\\:\\:createInvokable\\(\\) has parameter \\$config with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Tool/ConfigDumper.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\Tool\\\\ConfigDumper\\:\\:createInvokable\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Tool/ConfigDumper.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\Tool\\\\ConfigDumper\\:\\:createFactoryMappingsFromConfig\\(\\) has parameter \\$config with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Tool/ConfigDumper.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\Tool\\\\ConfigDumper\\:\\:createFactoryMappingsFromConfig\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Tool/ConfigDumper.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\Tool\\\\ConfigDumper\\:\\:createFactoryMappings\\(\\) has parameter \\$config with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Tool/ConfigDumper.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\Tool\\\\ConfigDumper\\:\\:createFactoryMappings\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Tool/ConfigDumper.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\Tool\\\\ConfigDumper\\:\\:dumpConfigFile\\(\\) has parameter \\$config with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Tool/ConfigDumper.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\Tool\\\\ConfigDumper\\:\\:prepareConfig\\(\\) has parameter \\$config with no value type specified in iterable type array\\|Traversable\\.$#"
+			count: 1
+			path: src/Tool/ConfigDumper.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\Tool\\\\ConfigDumperCommand\\:\\:__invoke\\(\\) has parameter \\$args with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Tool/ConfigDumperCommand.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\Tool\\\\ConfigDumperCommand\\:\\:parseArgs\\(\\) has parameter \\$args with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Tool/ConfigDumperCommand.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\Tool\\\\ConfigDumperCommand\\:\\:createArguments\\(\\) has parameter \\$config with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Tool/ConfigDumperCommand.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\Tool\\\\FactoryCreator\\:\\:getConstructorParameters\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Tool/FactoryCreator.php
+
+		-
+			message: "#^Parameter \\#1 \\$argument of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
+			count: 1
+			path: src/Tool/FactoryCreator.php
+
+		-
+			message: "#^PHPDoc tag @var for variable \\$class contains generic class ReflectionClass but does not specify its types\\: T$#"
+			count: 1
+			path: src/Tool/FactoryCreator.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\Tool\\\\FactoryCreatorCommand\\:\\:__invoke\\(\\) has parameter \\$args with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Tool/FactoryCreatorCommand.php
+
+		-
+			message: "#^Method Laminas\\\\ServiceManager\\\\Tool\\\\FactoryCreatorCommand\\:\\:parseArgs\\(\\) has parameter \\$args with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Tool/FactoryCreatorCommand.php
+
