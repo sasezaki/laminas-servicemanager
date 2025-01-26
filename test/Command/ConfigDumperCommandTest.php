@@ -18,7 +18,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 use function file_get_contents;
-use function realpath;
 use function sprintf;
 
 #[CoversClass(ConfigDumperCommand::class)]
@@ -157,9 +156,12 @@ final class ConfigDumperCommandTest extends TestCase
 
     public function testEmitsErrorWhenConfigurationFileDoesNotReturnArray(): void
     {
+        $content = file_get_contents(__DIR__ . '/../TestAsset/config/invalid.config.php');
+        self::assertIsString($content);
+
         vfsStream::newFile('config/invalid.config.php')
             ->at($this->configDir)
-            ->setContent(file_get_contents(realpath(__DIR__ . '/../TestAsset/config/invalid.config.php')));
+            ->setContent($content);
         $config = vfsStream::url('project/config/invalid.config.php');
 
         $this->configDumper
@@ -179,9 +181,12 @@ final class ConfigDumperCommandTest extends TestCase
 
     public function testEmitsErrorWhenClassDoesNotExist(): void
     {
+        $content = file_get_contents(__DIR__ . '/../TestAsset/config/test.config.php');
+        self::assertIsString($content);
+
         vfsStream::newFile('config/test.config.php')
             ->at($this->configDir)
-            ->setContent(file_get_contents(realpath(__DIR__ . '/../TestAsset/config/test.config.php')));
+            ->setContent($content);
         $config = vfsStream::url('project/config/test.config.php');
 
         $this->input
@@ -197,9 +202,12 @@ final class ConfigDumperCommandTest extends TestCase
 
     public function testEmitsErrorWhenUnableToCreateConfiguration(): void
     {
+        $content = file_get_contents(__DIR__ . '/../TestAsset/config/test.config.php');
+        self::assertIsString($content);
+
         vfsStream::newFile('config/test.config.php')
             ->at($this->configDir)
-            ->setContent(file_get_contents(realpath(__DIR__ . '/../TestAsset/config/test.config.php')));
+            ->setContent($content);
         $config = vfsStream::url('project/config/test.config.php');
 
         $this->input

@@ -69,6 +69,7 @@ final class LazyServiceIntegrationTest extends TestCase
     private function removeDir(string $directory): void
     {
         $handle = opendir($directory);
+        self::assertIsResource($handle);
         while (false !== ($item = readdir($handle))) {
             if ('.' === $item || '..' === $item) {
                 continue;

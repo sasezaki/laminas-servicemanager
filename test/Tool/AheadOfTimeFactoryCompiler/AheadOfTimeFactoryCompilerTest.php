@@ -18,8 +18,6 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
-use const PHP_VERSION_ID;
-
 final class AheadOfTimeFactoryCompilerTest extends TestCase
 {
     private AheadOfTimeFactoryCompiler $compiler;
@@ -106,27 +104,13 @@ final class AheadOfTimeFactoryCompilerTest extends TestCase
             'trait'                    => [
                 WhateverTrait::class,
             ],
-        ];
-    }
-
-    /**
-     * @return array<non-empty-string,array{string}>
-     */
-    public static function nonClassReferencingServiceNamesPhp81Upwards(): array
-    {
-        if (PHP_VERSION_ID < 80100) {
-            return [];
-        }
-
-        return [
-            'enum' => [
+            'enum'                     => [
                 WhateverEnum::class,
             ],
         ];
     }
 
     #[DataProvider('nonClassReferencingServiceNames')]
-    #[DataProvider('nonClassReferencingServiceNamesPhp81Upwards')]
     public function testWillRaiseExceptionWhenFactoryIsUsedWithNonClassReferencingService(string $serviceName): void
     {
         $config = [

@@ -21,6 +21,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 use function assert;
 use function file_get_contents;
+use function is_string;
 use function sprintf;
 
 #[CoversClass(AheadOfTimeFactoryCreatorCommand::class)]
@@ -140,7 +141,7 @@ final class AheadOfTimeFactoryCreatorCommandTest extends TestCase
             ->willReturn(sprintf('%s/%s', $directory, $localConfigFilename));
 
         $generatedFactory = file_get_contents(__DIR__ . '/../TestAsset/factories/SimpleDependencyObject.php');
-        assert($generatedFactory !== '');
+        assert(is_string($generatedFactory) && $generatedFactory !== '');
 
         $this->factoryCompiler
             ->expects(self::once())
@@ -268,7 +269,7 @@ final class AheadOfTimeFactoryCreatorCommandTest extends TestCase
 
         $generatedFactoryAssetPath = __DIR__ . '/../TestAsset/factories/SimpleDependencyObject.php';
         $generatedFactory          = file_get_contents($generatedFactoryAssetPath);
-        assert($generatedFactory !== '');
+        assert(is_string($generatedFactory) && $generatedFactory !== '');
 
         $this->factoryCompiler
             ->expects(self::once())
