@@ -21,61 +21,19 @@
     
     <issueHandlers>
         <MixedAssignment errorLevel="suppress"/>
-        <InvalidCatch>
-            <errorLevel type="suppress">
-                <!-- PSR does not implement Throwable in 1.x version -->
-                <referencedClass name="Psr\Container\ContainerExceptionInterface"/>
-                <referencedClass name="Psr\Container\NotFoundExceptionInterface"/>
-            </errorLevel>
-        </InvalidCatch>
-        <InvalidThrow>
-            <errorLevel type="suppress">
-                <!-- PSR does not implement Throwable in 1.x version -->
-                <referencedClass name="Psr\Container\ContainerExceptionInterface"/>
-            </errorLevel>
-        </InvalidThrow>
-        <DeprecatedClass>
-            <errorLevel type="suppress">
-                <referencedClass name="Laminas\ServiceManager\DelegatorFactoryInterface"/>
-                <referencedClass name="Laminas\ServiceManager\InitializerInterface"/>
-                <referencedClass name="Laminas\ServiceManager\FactoryInterface"/>
-            </errorLevel>
-        </DeprecatedClass>
-        <DeprecatedProperty>
-            <errorLevel type="suppress">
-                <referencedProperty name="Laminas\ServiceManager\AbstractPluginManager::$initializers"/>
-                <referencedProperty name="Laminas\ServiceManager\AbstractPluginManager::$delegators"/>
-                <referencedProperty name="Laminas\ServiceManager\AbstractPluginManager::$shared"/>
-                <referencedProperty name="Laminas\ServiceManager\AbstractPluginManager::$lazyServices"/>
-                <referencedProperty name="Laminas\ServiceManager\AbstractPluginManager::$services"/>
-                <referencedProperty name="Laminas\ServiceManager\AbstractPluginManager::$aliases"/>
-                <referencedProperty name="Laminas\ServiceManager\AbstractPluginManager::$abstractFactories"/>
-                <referencedProperty name="Laminas\ServiceManager\AbstractPluginManager::$factories"/>
-            </errorLevel>
-        </DeprecatedProperty>
-        <InvalidThrow>
-            <errorLevel type="suppress">
-                <referencedClass name="Interop\Container\Exception\ContainerException"/>
-            </errorLevel>
-        </InvalidThrow>
         <DeprecatedMethod>
-            <errorLevel type="info">
-                <referencedMethod name="Laminas\ServiceManager\AbstractPluginManager::addAbstractFactory"/>
-                <referencedMethod name="Laminas\ServiceManager\AbstractPluginManager::setService"/>
-                <referencedMethod name="Laminas\ServiceManager\AbstractPluginManager::setInvokableClass"/>
-                <referencedMethod name="Laminas\ServiceManager\AbstractPluginManager::setAlias"/>
-                <referencedMethod name="Laminas\ServiceManager\AbstractPluginManager::setShared"/>
-                <referencedMethod name="Laminas\ServiceManager\AbstractPluginManager::addInitializer"/>
-                <referencedMethod name="Laminas\ServiceManager\AbstractPluginManager::addDelegator"/>
-                <referencedMethod name="Laminas\ServiceManager\AbstractPluginManager::setFactory"/>
-                <referencedMethod name="Laminas\ServiceManager\AbstractPluginManager::mapLazyService"/>
+            <errorLevel type="suppress">
+                <!-- Permit tests to call deprecated methods -->
+                <directory name="test" />
+                <file name="src/Test/CommonPluginManagerTrait.php" />
             </errorLevel>
         </DeprecatedMethod>
-        <DeprecatedClass>
+        <DeprecatedProperty>
             <errorLevel type="suppress">
-                <referencedClass name="Laminas\ServiceManager\Config"/>
+                <!-- The abstract plugin manager will need to reference deprecated props until v5 -->
+                <file name="src/AbstractPluginManager.php" />
             </errorLevel>
-        </DeprecatedClass>
+        </DeprecatedProperty>
         <InternalClass>
             <errorLevel type="suppress">
                 <!-- Tests are allowed to work with internal classes -->
@@ -88,11 +46,11 @@
                 <directory name="test"/>
             </errorLevel>
         </InternalMethod>
+        <PossiblyUnusedMethod>
+            <errorLevel type="suppress">
+                <!-- All data-providers appear as 'un-used' -->
+                <directory name="test"/>
+            </errorLevel>
+        </PossiblyUnusedMethod>
     </issueHandlers>
-
-    <plugins>
-        <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
-        <pluginClass class="Boesing\PsalmPluginStringf\Plugin"/>
-        
-    </plugins>
-</psalm>
+<plugins><pluginClass class="Psalm\PhpUnitPlugin\Plugin"/></plugins></psalm>

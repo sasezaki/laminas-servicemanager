@@ -318,6 +318,7 @@ final class ConfigDumperTest extends TestCase
         self::assertStringContainsString('::class', $formatted);
 
         $file = tempnam(sys_get_temp_dir(), 'ZSCLI');
+        self::assertIsString($file);
         file_put_contents($file, $formatted);
         $test = include $file;
         unlink($file);

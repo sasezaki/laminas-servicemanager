@@ -13,6 +13,7 @@ use function assert;
 use function class_exists;
 use function file_get_contents;
 use function is_readable;
+use function is_string;
 use function json_decode;
 use function realpath;
 use function sprintf;
@@ -27,7 +28,7 @@ final class LaminasComponentInstallerIntegrationTest extends TestCase
     private function getComposerJsonPath(): string
     {
         $path = realpath(__DIR__ . '/../composer.json');
-        assert($path !== '');
+        assert(is_string($path) && $path !== '');
 
         return $path;
     }
@@ -42,8 +43,11 @@ final class LaminasComponentInstallerIntegrationTest extends TestCase
             self::fail(sprintf('`composer.json` located at "%s" is not readable.', $composerJsonPath));
         }
 
+        $contents = file_get_contents($composerJsonPath);
+        self::assertIsString($contents);
+
         try {
-            $composerJson = json_decode(file_get_contents($composerJsonPath), true, 512, JSON_THROW_ON_ERROR);
+            $composerJson = json_decode($contents, true, 512, JSON_THROW_ON_ERROR);
         } catch (JsonException $exception) {
             self::fail(sprintf(
                 '`composer.json` located at "%s" is invalid: %s',

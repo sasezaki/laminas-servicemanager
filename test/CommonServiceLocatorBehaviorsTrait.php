@@ -444,9 +444,6 @@ trait CommonServiceLocatorBehaviorsTrait
         self::assertSame($expected, $serviceManager->has(DateTime::class));
     }
 
-    /**
-     * @covers \Laminas\ServiceManager\ServiceManager::configure
-     */
     public function testCanConfigureAllServiceTypes(): void
     {
         $serviceManager = self::createContainer([
@@ -526,9 +523,6 @@ trait CommonServiceLocatorBehaviorsTrait
         self::assertEquals('baz', $stdClass->bar, 'stdClass "bar" property was not injected correctly');
     }
 
-    /**
-     * @covers \Laminas\ServiceManager\ServiceManager::configure
-     */
     public function testCanSpecifyAbstractFactoryUsingStringViaConfiguration(): void
     {
         $serviceManager = self::createContainer([
@@ -560,9 +554,6 @@ trait CommonServiceLocatorBehaviorsTrait
         self::assertEquals('bar', $instance->foo, '"foo" property was not properly injected');
     }
 
-    /**
-     * @covers \Laminas\ServiceManager\ServiceManager::getFactory
-     */
     public function testGetRaisesExceptionWhenNoFactoryIsResolved(): void
     {
         $serviceManager = self::createContainer();
