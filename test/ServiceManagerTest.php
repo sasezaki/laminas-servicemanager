@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace LaminasTest\ServiceManager;
 
 use DateTime;
-use Laminas\ServiceManager\ConfigInterface;
 use Laminas\ContainerConfigTest\TestAsset\DelegatorFactory;
+use Laminas\ServiceManager\ConfigInterface;
 use Laminas\ServiceManager\Factory\AbstractFactoryInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Laminas\ServiceManager\Factory\InvokableFactory;
