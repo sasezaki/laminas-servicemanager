@@ -488,40 +488,6 @@
     <MissingClosureReturnType>
       <code><![CDATA[static function ($container, $name, $callback) {]]></code>
     </MissingClosureReturnType>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[[
-            'abstract_factories' => [
-                $factory,
-            ],
-        ]]]></code>
-      <code><![CDATA[[
-            'abstract_factories' => [
-                $factory,
-            ],
-        ]]]></code>
-      <code><![CDATA[[
-            'factories'  => [
-                stdClass::class => InvokableFactory::class,
-            ],
-            'delegators' => [
-                stdClass::class => [
-                    $delegator,
-                ],
-            ],
-        ]]]></code>
-      <code><![CDATA[[
-            'factories'  => [
-                stdClass::class => InvokableFactory::class,
-            ],
-            'delegators' => [
-                stdClass::class => [
-                    $delegator,
-                ],
-            ],
-        ]]]></code>
-      <code><![CDATA[['initializers' => [$initializer]]]]></code>
-      <code><![CDATA[['initializers' => [$initializer]]]]></code>
-    </MixedArgumentTypeCoercion>
     <MixedArrayAssignment>
       <code><![CDATA[$object[$shared ? $method : 'build'][]]]></code>
     </MixedArrayAssignment>
@@ -574,16 +540,8 @@
       <code><![CDATA[$options]]></code>
       <code><![CDATA[$requestedName]]></code>
     </UnusedClosureParam>
-    <UnusedPsalmSuppress>
-      <code><![CDATA[InvalidArgument]]></code>
-      <code><![CDATA[InvalidArgument]]></code>
-      <code><![CDATA[InvalidArgument]]></code>
-    </UnusedPsalmSuppress>
   </file>
   <file src="test/ConfigTest.php">
-    <ArgumentTypeCoercion>
-      <code><![CDATA[$config]]></code>
-    </ArgumentTypeCoercion>
     <DeprecatedClass>
       <code><![CDATA[new Config($config)]]></code>
     </DeprecatedClass>
@@ -594,9 +552,6 @@
     <MixedMethodCall>
       <code><![CDATA[toArray]]></code>
     </MixedMethodCall>
-    <UnusedPsalmSuppress>
-      <code><![CDATA[InvalidArgument]]></code>
-    </UnusedPsalmSuppress>
   </file>
   <file src="test/Exception/CyclicAliasExceptionTest.php">
     <InvalidDocblock>
