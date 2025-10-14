@@ -147,6 +147,14 @@
       <code><![CDATA[$requestedName]]></code>
     </UnusedClosureParam>
   </file>
+  <file src="test/LaminasComponentInstallerIntegrationTest.php">
+    <LessSpecificReturnStatement>
+      <code><![CDATA[['config-provider' => $configProviderClassName, 'module' => $namespaceOfModule]]]></code>
+    </LessSpecificReturnStatement>
+    <MoreSpecificReturnType>
+      <code><![CDATA[array{config-provider:non-empty-string,module:non-empty-string}]]></code>
+    </MoreSpecificReturnType>
+  </file>
   <file src="test/LazyServiceIntegrationTest.php">
     <InvalidReturnStatement>
       <code><![CDATA[array_filter(spl_autoload_functions(), $filter)]]></code>

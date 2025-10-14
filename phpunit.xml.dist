@@ -6,7 +6,6 @@
          displayDetailsOnAllIssues="true"
          failOnAllIssues="true"
 >
-    <coverage/>
     <testsuites>
         <testsuite name="laminas-servicemanager Test Suite">
             <directory>./test/</directory>
@@ -17,7 +16,7 @@
             <group>disable</group>
         </exclude>
     </groups>
-    <source restrictDeprecations="true">
+    <source ignoreIndirectDeprecations="true">
         <include>
             <directory suffix=".php">./src</directory>
         </include>
