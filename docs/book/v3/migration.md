@@ -1344,8 +1344,8 @@ container should never be composed by objects.
 The following classes and interfaces have changes:
 
 - `Laminas\ServiceManager\Proxy\LazyServiceFactory` is now marked `final`, and
-   implements `Laminas\ServiceManager\Proxy\DelegatorFactoryInterface`. Its
-   dependencies and capabilities remain the same.
+  implements `Laminas\ServiceManager\Proxy\DelegatorFactoryInterface`. Its
+  dependencies and capabilities remain the same.
 - `Laminas\ServiceManager\ConfigInterface` now is expected to *return* the modified
   `ServiceManager` instance.
 - `Laminas\ServiceManager\Config` was updated to follow the changes to
