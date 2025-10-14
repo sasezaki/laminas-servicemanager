@@ -13,7 +13,7 @@
       <group>disable</group>
     </exclude>
   </groups>
-  <source>
+  <source restrictDeprecations="true">
     <include>
       <directory suffix=".php">./src</directory>
     </include>
