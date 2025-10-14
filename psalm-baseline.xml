@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="6.0.0@b8e96bb617bf59382113b1b56cef751f648a7dc9">
+<files psalm-version="6.13.1@1e3b7f0a8ab32b23197b91107adc0a7ed8a05b51">
   <file src="src/AbstractFactory/ConfigAbstractFactory.php">
     <InvalidStringClass>
       <code><![CDATA[new $requestedName(...$arguments)]]></code>
@@ -28,6 +28,9 @@
     <InvalidArgument>
       <code><![CDATA[self::deDuplicateDetectedCycles($detectedCycles)]]></code>
     </InvalidArgument>
+    <InvalidOperand>
+      <code><![CDATA[$cycle]]></code>
+    </InvalidOperand>
     <PossiblyFalseOperand>
       <code><![CDATA[$cycle]]></code>
     </PossiblyFalseOperand>
@@ -49,34 +52,16 @@
     </MissingClosureParamType>
   </file>
   <file src="src/ServiceManager.php">
-    <InvalidArrayOffset>
-      <code><![CDATA[$this->services[$service]]]></code>
-    </InvalidArrayOffset>
-    <InvalidCast>
-      <code><![CDATA[$service]]></code>
-    </InvalidCast>
     <MissingClosureReturnType>
       <code><![CDATA[function () use ($name, $options) {]]></code>
     </MissingClosureReturnType>
     <MixedArgument>
       <code><![CDATA[$abstractFactory]]></code>
-      <code><![CDATA[$config['aliases']]]></code>
       <code><![CDATA[$config['delegators']]]></code>
-      <code><![CDATA[$config['delegators']]]></code>
-      <code><![CDATA[$config['factories']]]></code>
       <code><![CDATA[$config['initializers']]]></code>
       <code><![CDATA[$config['invokables']]]></code>
-      <code><![CDATA[$config['invokables']]]></code>
       <code><![CDATA[$config['lazy_services']]]></code>
-      <code><![CDATA[$config['lazy_services']['class_map']]]></code>
-      <code><![CDATA[$config['shared']]]></code>
     </MixedArgument>
-    <MixedArgumentTypeCoercion>
-      <code><![CDATA[$service]]></code>
-    </MixedArgumentTypeCoercion>
-    <MixedArrayTypeCoercion>
-      <code><![CDATA[$this->services[$service]]]></code>
-    </MixedArrayTypeCoercion>
     <MixedOperand>
       <code><![CDATA[$config['aliases']]]></code>
       <code><![CDATA[$config['aliases'] ?? []]]></code>
