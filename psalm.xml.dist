@@ -10,7 +10,6 @@
     findUnusedBaselineEntry="true"
 >
     <projectFiles>
-        <directory name="bin"/>
         <directory name="src"/>
         <directory name="test"/>
         <ignoreFiles>
@@ -21,37 +20,43 @@
     </projectFiles>
     
     <issueHandlers>
-        <InvalidCatch>
+        <MixedAssignment errorLevel="suppress"/>
+        <DeprecatedMethod>
             <errorLevel type="suppress">
-                <!-- PSR does not implement Throwable in 1.x version -->
-                <referencedClass name="Psr\Container\ContainerExceptionInterface"/>
-                <referencedClass name="Psr\Container\NotFoundExceptionInterface"/>
+                <!-- Permit tests to call deprecated methods -->
+                <directory name="test" />
+                <file name="src/Test/CommonPluginManagerTrait.php" />
             </errorLevel>
-        </InvalidCatch>
-        <InvalidThrow>
+        </DeprecatedMethod>
+        <DeprecatedProperty>
             <errorLevel type="suppress">
-                <!-- PSR does not implement Throwable in 1.x version -->
-                <referencedClass name="Psr\Container\ContainerExceptionInterface"/>
+                <!-- The abstract plugin manager will need to reference deprecated props until v5 -->
+                <file name="src/AbstractPluginManager.php" />
             </errorLevel>
-        </InvalidThrow>
+        </DeprecatedProperty>
+        <InternalClass>
+            <errorLevel type="suppress">
+                <!-- Tests are allowed to work with internal classes -->
+                <directory name="test"/>
+            </errorLevel>
+        </InternalClass>
+        <InternalMethod>
+            <errorLevel type="suppress">
+                <!-- Tests are allowed to work with internal classes -->
+                <directory name="test"/>
+            </errorLevel>
+        </InternalMethod>
+        <PossiblyUnusedMethod>
+            <errorLevel type="suppress">
+                <!-- All data-providers appear as 'un-used' -->
+                <directory name="test"/>
+            </errorLevel>
+        </PossiblyUnusedMethod>
+        <MissingOverrideAttribute>
+            <errorLevel type="suppress">
+                <directory name="src" />
+                <directory name="test" />
+            </errorLevel>
+        </MissingOverrideAttribute>
     </issueHandlers>
-
-    <issueHandlers>
-        <DeprecatedClass>
-            <errorLevel type="suppress">
-                <referencedClass name="Laminas\ServiceManager\DelegatorFactoryInterface"/>
-                <referencedClass name="Laminas\ServiceManager\InitializerInterface"/>
-                <referencedClass name="Laminas\ServiceManager\FactoryInterface"/>
-            </errorLevel>
-        </DeprecatedClass>
-        <InvalidThrow>
-            <errorLevel type="suppress">
-                <referencedClass name="Interop\Container\Exception\ContainerException"/>
-            </errorLevel>
-        </InvalidThrow>
-    </issueHandlers>
-
-    <plugins>
-        <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
-    </plugins>
-</psalm>
+<plugins><pluginClass class="Psalm\PhpUnitPlugin\Plugin"/></plugins></psalm>

@@ -15,6 +15,8 @@ use function array_values;
 use function is_array;
 use function json_encode;
 
+use const JSON_THROW_ON_ERROR;
+
 final class ConfigAbstractFactory implements AbstractFactoryInterface
 {
     /**
@@ -22,7 +24,7 @@ final class ConfigAbstractFactory implements AbstractFactoryInterface
      *
      * {@inheritdoc}
      */
-    public function canCreate(ContainerInterface $container, $requestedName)
+    public function canCreate(ContainerInterface $container, string $requestedName): bool
     {
         if (! $container->has('config')) {
             return false;
@@ -37,7 +39,7 @@ final class ConfigAbstractFactory implements AbstractFactoryInterface
     }
 
     /** {@inheritDoc} */
-    public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null)
+    public function __invoke(ContainerInterface $container, string $requestedName, ?array $options = null): mixed
     {
         if (! $container->has('config')) {
             throw new ServiceNotCreatedException('Cannot find a config array in the container');
@@ -65,13 +67,13 @@ final class ConfigAbstractFactory implements AbstractFactoryInterface
         $serviceDependencies = $dependencies[$requestedName];
 
         if ($serviceDependencies !== array_values(array_map('strval', $serviceDependencies))) {
-            $problem = json_encode(array_map('gettype', $serviceDependencies));
+            $problem = json_encode(array_map('gettype', $serviceDependencies), JSON_THROW_ON_ERROR);
             throw new ServiceNotCreatedException(
                 'Service dependencies config must be an array of strings, ' . $problem . ' given'
             );
         }
 
-        $arguments = array_map([$container, 'get'], $serviceDependencies);
+        $arguments = array_map($container->get(...), $serviceDependencies);
 
         return new $requestedName(...$arguments);
     }
